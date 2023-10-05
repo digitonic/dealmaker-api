@@ -2,9 +2,9 @@
 
 namespace Digitonic\DealmakerApi;
 
+use Digitonic\DealmakerApi\Commands\DealmakerApiCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Digitonic\DealmakerApi\Commands\DealmakerApiCommand;
 
 class DealmakerApiServiceProvider extends PackageServiceProvider
 {

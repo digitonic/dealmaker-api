@@ -11,6 +11,6 @@ class DealmakerApi extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Digitonic\DealmakerApi\DealmakerApi::class;
+        return \Digitonic\DealmakerApi\DealMakerApi::class;
     }
 }

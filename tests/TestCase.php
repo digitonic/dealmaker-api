@@ -2,9 +2,9 @@
 
 namespace Digitonic\DealmakerApi\Tests;
 
+use Digitonic\DealmakerApi\DealmakerApiServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Digitonic\DealmakerApi\DealmakerApiServiceProvider;
 
 class TestCase extends Orchestra
 {
