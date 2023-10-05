@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Digitonic\DealmakerApi\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class DealmakerApiCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'dealmaker-api';
 
     public $description = 'My command';
 
