@@ -9,7 +9,7 @@ use Saloon\Http\Faking\MockResponse;
 it('can get the access token using the client credentials', function () {
     $mockClient = new MockClient([
         GetAccessToken::class => MockResponse::make(body: [
-            'access_token' => 'egH3Ga2yjUYWUjvxwLXZsKsosyWy8fp3dvk0',
+            'access_token' => 'test-token',
             'token_type' => 'Bearer',
             'expires_in' => 3600,
             'scope' => 'deals.read deals.investors.read companies.read',
@@ -37,7 +37,7 @@ it('can get the access token using the client credentials', function () {
 it('uses a cached service wrapper for the access token', function () {
     $mockClient = new MockClient([
         GetAccessToken::class => MockResponse::make(body: [
-            'access_token' => 'egH3Ga2yjUYWUjvxwLXZsKsosyWy8fp3dvk0',
+            'access_token' => 'test-token',
             'token_type' => 'Bearer',
             'expires_in' => 3600,
             'scope' => 'deals.read deals.investors.read companies.read',
@@ -52,6 +52,6 @@ it('uses a cached service wrapper for the access token', function () {
 
     $accessToken = $connector->getAccessToken();
 
-    expect($accessToken)->toBe('egH3Ga2yjUYWUjvxwLXZsKsosyWy8fp3dvk0');
-    expect(Cache::get('dealmaker_api_token'))->toBe('egH3Ga2yjUYWUjvxwLXZsKsosyWy8fp3dvk0');
+    expect($accessToken)->toBe('test-token');
+    expect(Cache::get('dealmaker_api_token'))->toBe('test-token');
 });

@@ -50,7 +50,7 @@ return [
 ## Usage
 
 ```php
-$dealmakerApi = new Digitonic\DealmakerApi();
+$dealmakerApi = new Digitonic\DealmakerApi\DealmakerApi();
 $deals = new Digitonic\DealmakerApi\Requests\Deal\ListDeals();
 
 $response = $dealmakerApi->send($deals);
