@@ -2,16 +2,20 @@
 
 namespace Digitonic\DealmakerApi\Requests\Auth;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasFormBody;
 
 /**
  * getCompanies
  *
  * Get companies
  */
-class GetAccessToken extends Request
+class GetAccessToken extends Request implements HasBody
 {
+    use HasFormBody;
+
     protected Method $method = Method::POST;
 
     protected mixed $clientId;
@@ -40,7 +44,7 @@ class GetAccessToken extends Request
             'grant_type' => 'client_credentials',
             'client_id' => $this->clientId,
             'client_secret' => $this->clientSecret,
-            'scopes' => $this->scopes,
+            'scope' => $this->scopes,
         ];
     }
 }

@@ -10,7 +10,7 @@ class DealMakerApiAuth extends Connector
 {
     public function resolveBaseUrl(): string
     {
-        return 'https://api.dealmaker.tech';
+        return 'https://app.dealmaker.tech';
     }
 
     public function getAccessToken()
