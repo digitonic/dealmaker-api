@@ -1,11 +1,13 @@
-# DealMaker API PHP SDK
+# DealMaker API
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/digitonic/dealmaker-api.svg?style=flat-square)](https://packagist.org/packages/digitonic/dealmaker-api)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/digitonic/dealmaker-api/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/digitonic/dealmaker-api/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/digitonic/dealmaker-api/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/digitonic/dealmaker-api/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/digitonic/dealmaker-api.svg?style=flat-square)](https://packagist.org/packages/digitonic/dealmaker-api)
 
-A PHP implementation of the DealMaker API
+**WARNING: This is not a complete package and is not ready for use. This is a work in progress and only contains a few read only endpoints**
+
+A Laravel wrapper of the DealMaker API
 
 ## Installation
 
@@ -13,13 +15,6 @@ You can install the package via composer:
 
 ```bash
 composer require digitonic/dealmaker-api
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="dealmaker-api-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
@@ -32,20 +27,33 @@ This is the contents of the published config file:
 
 ```php
 return [
+    /**
+     * The Client ID displayed when you created the OAuth application in the portal
+     * This is typically called the "Public Key" in the portal
+     */
+    'client_id' => env('DEALMAKER_CLIENT_ID', ''),
+
+    /**
+     * The Client Secret displayed when you created the OAuth application in the portal
+     * This is typically called the "Secret Key" in the portal
+     */
+    'client_secret' => env('DEALMAKER_CLIENT_SECRET', ''),
+
+    /**
+     * The scope is established when you created the OAuth application
+     * This is typically called the "Scopes" in the portal
+     */
+    'scopes' => env('DEALMAKER_SCOPES', ''),
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="dealmaker-api-views"
 ```
 
 ## Usage
 
 ```php
 $dealmakerApi = new Digitonic\DealmakerApi();
-echo $dealmakerApi->echoPhrase('Hello, Digitonic!');
+$deals = new Digitonic\DealmakerApi\Requests\Deal\ListDeals();
+
+$response = $dealmakerApi->send($deals);
 ```
 
 ## Testing
