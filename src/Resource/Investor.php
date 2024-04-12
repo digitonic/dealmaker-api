@@ -2,6 +2,7 @@
 
 namespace Digitonic\DealmakerApi\Resource;
 
+use Digitonic\DealmakerApi\Requests\Investor\CreateInvestor;
 use Digitonic\DealmakerApi\Requests\Investor\GetInvestor;
 use Digitonic\DealmakerApi\Requests\Investor\ListInvestors;
 use Digitonic\DealmakerApi\Resource;
@@ -28,5 +29,14 @@ class Investor extends Resource
     public function getInvestor(int $id, int $investorId): Response
     {
         return $this->connector->send(new GetInvestor($id, $investorId));
+    }
+
+    /**
+     * @param  int  $id  The deal id.
+     * @param  array  $payload  The post body payload.
+     */
+    public function createInvestor(int $id, array $payload): Response
+    {
+        return $this->connector->send(new CreateInvestor($id, $payload));
     }
 }
