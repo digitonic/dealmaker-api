@@ -20,7 +20,7 @@ class CreateIndividualInvestorProfile extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return "/investor_profiles/individuals";
+        return '/investor_profiles/individuals';
     }
 
     /**
