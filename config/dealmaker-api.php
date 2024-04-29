@@ -23,5 +23,5 @@ return [
     /**
      * The DealMaker Deal ID for the current investment landing page
      */
-    'deal_id' => env('DEALMAKER_DEAL_ID', '3475'),
+    'deal_id' => env('DEALMAKER_DEAL_ID', ''),
 ];

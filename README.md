@@ -44,6 +44,11 @@ return [
      * This is typically called the "Scopes" in the portal
      */
     'scopes' => env('DEALMAKER_SCOPES', ''),
+    
+        /**
+     * The DealMaker Deal ID for the current investment landing page
+     */
+    'deal_id' => env('DEALMAKER_DEAL_ID', ''),
 ];
 ```
 
