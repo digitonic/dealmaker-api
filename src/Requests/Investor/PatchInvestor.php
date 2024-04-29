@@ -12,11 +12,11 @@ use Saloon\Traits\Body\HasJsonBody;
  *
  * Create a single deal investor
  */
-class UpdateInvestor extends Request implements HasBody
+class PatchInvestor extends Request implements HasBody
 {
     use HasJsonBody;
 
-    protected Method $method = Method::PUT;
+    protected Method $method = Method::PATCH;
 
     public function resolveEndpoint(): string
     {

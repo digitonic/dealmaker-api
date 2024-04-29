@@ -1,6 +1,6 @@
 <?php
 
-namespace Digitonic\DealmakerApi\Requests\Investor;
+namespace Digitonic\DealmakerApi\Requests\InvestorProfile;
 
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
@@ -8,11 +8,11 @@ use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
 /**
- * CreateInvestor
+ * CreateIndividualInvestorProfile
  *
- * Create a single deal investor
+ * Create new individual investor profile
  */
-class CreateInvestor extends Request implements HasBody
+class CreateIndividualInvestorProfile extends Request implements HasBody
 {
     use HasJsonBody;
 
@@ -20,15 +20,13 @@ class CreateInvestor extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return "/deals/{$this->id}/investors";
+        return "/investor_profiles/individuals";
     }
 
     /**
-     * @param  int  $id  The deal id.
      * @param  array  $payload  The post body payload.
      */
     public function __construct(
-        protected int $id,
         protected array $payload
     ) {
     }
