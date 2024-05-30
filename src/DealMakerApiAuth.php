@@ -16,7 +16,13 @@ class DealMakerApiAuth extends Connector
     public function getAccessToken()
     {
         return Cache::remember('dealmaker_api_token', 3600, function () {
-            return $this->send(new GetAccessToken())->json()['access_token'];
+            $json = $this->send(new GetAccessToken())->json();
+
+            if (isset($json['access_token'])) {
+                return $json['access_token'];
+            }
+
+            return '';
         });
     }
 }
