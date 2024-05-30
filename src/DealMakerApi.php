@@ -12,13 +12,9 @@ use Saloon\Http\Connector;
 
 class DealMakerApi extends Connector
 {
-    private mixed $token;
-
-    public function __construct()
-    {
-        $auth = new DealMakerApiAuth();
-        $this->token = $auth->getAccessToken();
-    }
+    public function __construct(
+        private mixed $token
+    ) { }
 
     protected function defaultAuth(): TokenAuthenticator
     {

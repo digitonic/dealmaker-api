@@ -55,7 +55,10 @@ return [
 ## Usage
 
 ```php
-$dealmakerApi = new Digitonic\DealmakerApi\DealmakerApi();
+
+$auth = new DealMakerApiAuth();
+$token = $auth->getAccessToken();
+$dealmakerApi = new Digitonic\DealmakerApi\DealmakerApi($token);
 $deals = new Digitonic\DealmakerApi\Requests\Deal\ListDeals();
 
 $response = $dealmakerApi->send($deals);
